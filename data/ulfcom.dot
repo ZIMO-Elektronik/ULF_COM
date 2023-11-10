@@ -1,0 +1,56 @@
+digraph {
+  newrank=true;
+
+  reset->getc;
+  reset[label="Reset"];
+
+  getc[shape=rect, label="Read character\nfrom serial/CDC"];
+  getc->binary;
+
+  binary[shape=diamond, label="Binary"];
+  binary->change_mode[label="true"];
+  binary->command[label="false"];
+
+  command[shape=diamond, label="Command"];
+  command->ping[label="true"];
+  command->getc[label="false"];
+
+  subgraph cluster_general_commands {
+    label="General commands";
+    ping[shape=diamond, label="\"PING\\r\""];
+    execute_ping[shape=rect, label="Reply \"DEVICE vMAJOR.MINOR.PATCH [hREV]\\r\""];
+    ping->execute_ping[label="true"];
+  }
+
+  execute_ping->getc;
+
+  subgraph cluster_mode_commands {
+    label="Mode-switch commands";
+    dcc_ein[shape=diamond, label="\"DCC_EIN\\r\""];
+    ping->dcc_ein[label="false"];
+    decup_ein[shape=diamond, label="\"DECUP_EIN\\r\""];
+    dcc_ein->decup_ein[label="false"];
+    mdusndprep[shape=diamond, label="\"MDUSNDPREP\\r\""];
+    decup_ein->mdusndprep[label="false"];
+    susiv2[shape=diamond, label="\"SUSIV2\\r\""];
+    mdusndprep->susiv2[label="false"];
+  }
+
+  susiv2->getc[label="false"];
+
+  mode_supported[shape=diamond, label="Mode supported"];
+  dcc_ein->mode_supported[label="true"];
+  decup_ein->mode_supported[label="true"];
+  mdusndprep->mode_supported[label="true"];
+  susiv2->mode_supported[label="true"];
+
+  mode_supported->reply_ok[label="true"];
+  mode_supported->reply_not_ok[label="false"];
+
+  change_mode[label="Change to mode\n(can be left with \"RESET\\r\")"];
+  reply_ok[shape=rect, label="Reply \"OK\\r\""];
+  reply_ok->change_mode;
+
+  reply_not_ok[shape=rect, label="Reply \"NOT OK\\r\""];
+  reply_not_ok->getc;
+}
