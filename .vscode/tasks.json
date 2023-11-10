@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run dot",
+      "type": "shell",
+      "isBackground": true,
+      "command": "dot -Tpng ./data/ulfcom.dot > ./data/images/ulfcom.png"
+    }
+  ]
+}
