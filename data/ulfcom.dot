@@ -30,10 +30,10 @@ digraph {
     ping->dcc_ein[label="false"];
     decup_ein[shape=diamond, label="\"DECUP_EIN\\r\""];
     dcc_ein->decup_ein[label="false"];
-    mdusndprep[shape=diamond, label="\"MDUSNDPREP\\r\""];
-    decup_ein->mdusndprep[label="false"];
+    mdu_ein[shape=diamond, label="\"MDU_EIN\\r\""];
+    decup_ein->mdu_ein[label="false"];
     susiv2[shape=diamond, label="\"SUSIV2\\r\""];
-    mdusndprep->susiv2[label="false"];
+    mdu_ein->susiv2[label="false"];
   }
 
   susiv2->getc[label="false"];
@@ -41,7 +41,7 @@ digraph {
   mode_supported[shape=diamond, label="Mode supported"];
   dcc_ein->mode_supported[label="true"];
   decup_ein->mode_supported[label="true"];
-  mdusndprep->mode_supported[label="true"];
+  mdu_ein->mode_supported[label="true"];
   susiv2->mode_supported[label="true"];
 
   mode_supported->reply_ok[label="true"];

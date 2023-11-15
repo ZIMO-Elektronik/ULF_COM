@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-/// ULFCom
+/// Commands
 ///
 /// \file   ulfcom/commands.hpp
 /// \author Vincent Hamp
@@ -15,15 +15,15 @@ namespace ulfcom {
 
 using namespace std::literals;
 
-/// Array of commands
-constexpr std::array commands{
+/// Commands
+inline constexpr std::array commands{
   // General
   "PING\r"sv,
 
-  // Protocols
+  // Protocols (mode changes)
   "DCC_EIN\r"sv,
   "DECUP_EIN\r"sv,
-  "MDUSNDPREP\r"sv,
+  "MDU_EIN\r"sv,
   "SUSIV2\r"sv,
 };
 

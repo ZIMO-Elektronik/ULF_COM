@@ -14,10 +14,21 @@ project(
   VERSION ${VERSION_FROM_GIT}
   LANGUAGES CXX)
 
+set(ULFCOM_MAX_DEVICE_NAME_LEN
+    32uz
+    CACHE STRING "Maximum length of device name string")
+set(ULFCOM_MAX_VERSION_LEN
+    32uz
+    CACHE STRING "Maximum length of version string")
+
 add_library(ULFCom INTERFACE ${SRC})
 add_library(ULF::Com ALIAS ULFCom)
 
 target_compile_features(ULFCom INTERFACE cxx_std_23)
+
+target_compile_definitions(
+  ULFCom INTERFACE ULFCOM_MAX_DEVICE_NAME_LEN=${ULFCOM_MAX_DEVICE_NAME_LEN}
+                   ULFCOM_MAX_VERSION_LEN=${ULFCOM_MAX_VERSION_LEN})
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   target_include_directories(ULFCom INTERFACE include)
@@ -33,6 +44,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     DOWNLOAD
     https://raw.githubusercontent.com/ZIMO-Elektronik/.clang-format/master/.clang-format
     ${CMAKE_CURRENT_LIST_DIR}/.clang-format)
+  file(GLOB_RECURSE SRC include/ulfcom/*.hpp)
   add_clang_format_target(ULFComFormat OPTIONS -i FILES ${SRC})
 endif()
 
