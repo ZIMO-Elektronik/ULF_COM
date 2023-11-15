@@ -8,10 +8,11 @@ FetchContent_Declare(
   SOURCE_DIR ${CMAKE_BINARY_DIR}/CMakeModules)
 FetchContent_MakeAvailable(CMakeModules)
 
-# version_from_git()
-project(ULFCom
-        # VERSION ${VERSION_FROM_GIT}
-        LANGUAGES CXX)
+version_from_git()
+project(
+  ULFCom
+  VERSION ${VERSION_FROM_GIT}
+  LANGUAGES CXX)
 
 add_library(ULFCom INTERFACE ${SRC})
 add_library(ULF::Com ALIAS ULFCom)
