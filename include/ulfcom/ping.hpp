@@ -17,7 +17,7 @@
 
 namespace ulfcom {
 
-inline auto ping(char const* device_name, char const* version) {
+constexpr auto ping(char const* device_name, char const* version) {
   assert(device_name && version);
   ztl::inplace_vector<char,
                       ULFCOM_MAX_DEVICE_NAME_LEN +  // Device name
@@ -30,17 +30,26 @@ inline auto ping(char const* device_name, char const* version) {
                         sizeof('\r')>               // Carriage return
     retval{};
   auto const first{cbegin(retval)};
-  auto last{std::copy_n(device_name, strlen(device_name), begin(retval))};
+  auto last{
+    std::copy_n(device_name,
+                std::min(strlen(device_name), ULFCOM_MAX_DEVICE_NAME_LEN),
+                begin(retval))};
   *last++ = ' ';
-  last = std::copy_n(version, strlen(version), last);
+  *last++ = 'v';
+  last = std::copy_n(
+    version, std::min(strlen(version), ULFCOM_MAX_VERSION_LEN), last);
   *last++ = '\r';
   retval.resize(static_cast<decltype(retval)::size_type>(last - first));
   return retval;
 }
 
-inline auto ping(char const* device_name, char const* version, char revision) {
+constexpr auto
+ping(char const* device_name, char const* version, char revision) {
   auto retval{ping(device_name, version)};
-  // ...
+  retval.back() = ' ';
+  retval.push_back('h');
+  retval.push_back(revision);
+  retval.push_back('\r');
   return retval;
 }
 
