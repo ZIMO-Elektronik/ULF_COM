@@ -8,8 +8,10 @@
 /// \author Vincent Hamp
 /// \date   15/11/2023
 
-#include "rx/str2cmd.hpp"
-#include "rx/str2mx1bin.hpp"
-#include "tx/not_ok.hpp"
-#include "tx/ok.hpp"
-#include "tx/ping.hpp"
+#pragma once
+
+#include "not_ok.hpp"
+#include "ok.hpp"
+#include "ping.hpp"
+#include "str2cmd.hpp"
+#include "str2mx1bin.hpp"

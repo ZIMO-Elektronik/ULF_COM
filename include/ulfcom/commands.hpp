@@ -8,6 +8,8 @@
 /// \author Vincent Hamp
 /// \date   15/11/2023
 
+#pragma once
+
 #include <array>
 #include <string_view>
 

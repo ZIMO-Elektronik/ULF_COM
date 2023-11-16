@@ -38,13 +38,19 @@ endif()
 
 target_common_warnings(ULFCom INTERFACE)
 
+if(NOT TARGET ZTL::ZTL)
+  cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.19.0")
+endif()
+
+target_link_libraries(ULFCom INTERFACE ZTL::ZTL)
+
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   include(CTest)
   file(
     DOWNLOAD
     https://raw.githubusercontent.com/ZIMO-Elektronik/.clang-format/master/.clang-format
     ${CMAKE_CURRENT_LIST_DIR}/.clang-format)
-  file(GLOB_RECURSE SRC include/ulfcom/*.hpp)
+  file(GLOB_RECURSE SRC include/*.*pp tests/*.*pp)
   add_clang_format_target(ULFComFormat OPTIONS -i FILES ${SRC})
 endif()
 

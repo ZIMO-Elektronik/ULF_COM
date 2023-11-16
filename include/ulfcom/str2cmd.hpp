@@ -8,13 +8,15 @@
 /// \author Vincent Hamp
 /// \date   15/11/2023
 
+#pragma once
+
 #include <expected>
 #include <optional>
 #include <string_view>
 #include <system_error>
-#include "../commands.hpp"
+#include "commands.hpp"
 
-namespace ulfcom::rx {
+namespace ulfcom {
 
 /// Convert string to command
 ///
@@ -37,4 +39,4 @@ str2cmd(std::string_view str) {
   return std::nullopt;
 }
 
-}  // namespace ulfcom::rx
+}  // namespace ulfcom

@@ -8,12 +8,14 @@
 /// \author Vincent Hamp
 /// \date   15/11/2023
 
+#pragma once
+
 #include <expected>
 #include <optional>
 #include <string_view>
 #include <system_error>
 
-namespace ulfcom::rx {
+namespace ulfcom {
 
 /// Convert string to MX1 binary
 ///
@@ -41,4 +43,4 @@ str2mx1bin(std::string_view str) {
   return std::nullopt;
 }
 
-}  // namespace ulfcom::rx
+}  // namespace ulfcom
