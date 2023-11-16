@@ -1,5 +1,7 @@
 # ULF_COM
 
+[![build](https://github.com/ZIMO-Elektronik/ULF_COM/actions/workflows/build.yml/badge.svg)](https://github.com/ZIMO-Elektronik/ULF_COM/actions/workflows/build.yml) [![tests](https://github.com/ZIMO-Elektronik/ULF_COM/actions/workflows/tests.yml/badge.svg)](https://github.com/ZIMO-Elektronik/ULF_COM/actions/workflows/tests.yml)
+
 <img src="data/images/logo.svg" width="20%" align="right">
 
 Most ZIMO devices, especially the [MXULF](http://www.zimo.at/web2010/products/InfMXULF_EN.htm), a device for updating and testing model railway decoders, support many different serial protocols. ULF_COM aims to provide an overview of the supported protocols and, above all, to help identify and switch over the currently active one. The following protocols are currently supported:
