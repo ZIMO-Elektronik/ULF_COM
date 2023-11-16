@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug ULFComExamples",
+      "name": "Debug ULF_COMExamples",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/examples/ULFComExamples",
+      "program": "${workspaceFolder}/build/examples/ULF_COMExamples",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
@@ -21,10 +21,10 @@
       ]
     },
     {
-      "name": "Debug ULFComTests",
+      "name": "Debug ULF_COMTests",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/tests/ULFComTests",
+      "program": "${workspaceFolder}/build/tests/ULF_COMTests",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

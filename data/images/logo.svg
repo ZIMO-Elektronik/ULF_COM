@@ -2,8 +2,8 @@
 <svg
    version="1.0"
    width="1279.3955pt"
-   height="508.02625pt"
-   viewBox="0 0 1279.3955 508.02625"
+   height="528.18628pt"
+   viewBox="0 0 1279.3955 528.18628"
    preserveAspectRatio="xMidYMid"
    id="svg1"
    sodipodi:docname="logo.svg"
@@ -17,8 +17,8 @@
     <rect
        x="92.289734"
        y="524.85583"
-       width="822.50909"
-       height="284.14267"
+       width="1112.0555"
+       height="303.16397"
        id="rect1706" />
   </defs>
   <sodipodi:namedview
@@ -32,8 +32,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      inkscape:zoom="0.47315387"
-     inkscape:cx="697.44753"
-     inkscape:cy="523.08565"
+     inkscape:cx="699.56101"
+     inkscape:cy="895.05767"
      inkscape:window-width="3440"
      inkscape:window-height="1408"
      inkscape:window-x="0"
@@ -57,8 +57,8 @@
      xml:space="preserve"
      id="text1704"
      style="font-size:186.667px;font-family:'Seven Segment';-inkscape-font-specification:'Seven Segment';white-space:pre;shape-inside:url(#rect1706);display:inline;fill:#75b1e1;fill-opacity:1;stroke:#75b1e1;stroke-opacity:1"
-     transform="matrix(0.75,0,0,0.75,293.63047,-14.77312)"><tspan
+     transform="matrix(0.75,0,0,0.75,254.71039,-14.77312)"><tspan
        x="92.289062"
        y="694.69915"
-       id="tspan1">ULFCom</tspan></text>
+       id="tspan2">ULF_COM</tspan></text>
 </svg>
