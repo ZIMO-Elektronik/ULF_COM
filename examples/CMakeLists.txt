@@ -1,6 +1,6 @@
 file(GLOB_RECURSE SRC *.cpp)
-add_executable(ULFComExamples ${SRC})
+add_executable(ULF_COMExamples ${SRC})
 
-target_common_warnings(ULFComExamples PRIVATE)
+target_common_warnings(ULF_COMExamples PRIVATE)
 
-target_link_libraries(ULFComExamples PRIVATE ULF::Com)
+target_link_libraries(ULF_COMExamples PRIVATE ULF::COM)

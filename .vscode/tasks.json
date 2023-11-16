@@ -2,28 +2,28 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "CMake ULFComTests Clang",
+      "label": "CMake ULF_COMTests Clang",
       "type": "shell",
       "isBackground": true,
       "command": "cmake -Bbuild -GNinja -DCMAKE_TOOLCHAIN_FILE=CMakeModules/src/toolchains/clang.cmake -DCMAKE_BUILD_TYPE=Debug"
     },
     {
-      "label": "CMake ULFComTests",
+      "label": "CMake ULF_COMTests",
       "type": "shell",
       "isBackground": true,
       "command": "cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug"
     },
     {
-      "label": "Ninja ULFComTests",
+      "label": "Ninja ULF_COMTests",
       "type": "shell",
       "isBackground": true,
-      "command": "ninja -C build ULFComTests"
+      "command": "ninja -C build ULF_COMTests"
     },
     {
-      "label": "Run ULFComTests",
+      "label": "Run ULF_COMTests",
       "type": "shell",
       "isBackground": true,
-      "command": "./build/tests/ULFComTests"
+      "command": "./build/tests/ULF_COMTests"
     },
     {
       "label": "Run dot",

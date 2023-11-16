@@ -10,7 +10,7 @@ FetchContent_MakeAvailable(CMakeModules)
 
 version_from_git()
 project(
-  ULFCom
+  ULF_COM
   VERSION ${VERSION_FROM_GIT}
   LANGUAGES CXX)
 
@@ -21,28 +21,28 @@ set(ULFCOM_MAX_VERSION_LEN
     32uz
     CACHE STRING "Maximum length of version string")
 
-add_library(ULFCom INTERFACE ${SRC})
-add_library(ULF::Com ALIAS ULFCom)
+add_library(ULF_COM INTERFACE ${SRC})
+add_library(ULF::COM ALIAS ULF_COM)
 
-target_compile_features(ULFCom INTERFACE cxx_std_23)
+target_compile_features(ULF_COM INTERFACE cxx_std_23)
 
 target_compile_definitions(
-  ULFCom INTERFACE ULFCOM_MAX_DEVICE_NAME_LEN=${ULFCOM_MAX_DEVICE_NAME_LEN}
-                   ULFCOM_MAX_VERSION_LEN=${ULFCOM_MAX_VERSION_LEN})
+  ULF_COM INTERFACE ULFCOM_MAX_DEVICE_NAME_LEN=${ULFCOM_MAX_DEVICE_NAME_LEN}
+                    ULFCOM_MAX_VERSION_LEN=${ULFCOM_MAX_VERSION_LEN})
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-  target_include_directories(ULFCom INTERFACE include)
+  target_include_directories(ULF_COM INTERFACE include)
 else()
-  target_include_directories(ULFCom SYSTEM INTERFACE include)
+  target_include_directories(ULF_COM SYSTEM INTERFACE include)
 endif()
 
-target_common_warnings(ULFCom INTERFACE)
+target_common_warnings(ULF_COM INTERFACE)
 
 if(NOT TARGET ZTL::ZTL)
   cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.19.0")
 endif()
 
-target_link_libraries(ULFCom INTERFACE ZTL::ZTL)
+target_link_libraries(ULF_COM INTERFACE ZTL::ZTL)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   include(CTest)
@@ -51,7 +51,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     https://raw.githubusercontent.com/ZIMO-Elektronik/.clang-format/master/.clang-format
     ${CMAKE_CURRENT_LIST_DIR}/.clang-format)
   file(GLOB_RECURSE SRC include/*.*pp tests/*.*pp)
-  add_clang_format_target(ULFComFormat OPTIONS -i FILES ${SRC})
+  add_clang_format_target(ULF_COMFormat OPTIONS -i FILES ${SRC})
 endif()
 
 if(BUILD_TESTING
