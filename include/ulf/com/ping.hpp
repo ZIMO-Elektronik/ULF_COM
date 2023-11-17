@@ -4,9 +4,9 @@
 
 /// Reply to "PING\r" command
 ///
-/// \file   ulfcom/tx/ping.hpp
+/// \file   ulf/com/ping.hpp
 /// \author Vincent Hamp
-/// \date   15/11/2023
+/// \date   17/11/2023
 
 #pragma once
 
@@ -15,7 +15,7 @@
 #include <string_view>
 #include <ztl/inplace_vector.hpp>
 
-namespace ulfcom {
+namespace ulf::com {
 
 /// Reply to "PING\r" command
 ///
@@ -28,24 +28,24 @@ namespace ulfcom {
 constexpr auto ping(char const* device_name, char const* version) {
   assert(device_name && version);
   ztl::inplace_vector<char,
-                      ULFCOM_MAX_DEVICE_NAME_LEN +  // Device name
-                        sizeof(' ') +               // Space
-                        sizeof('v') +               // Version identifier
-                        ULFCOM_MAX_VERSION_LEN +    // Version
-                        sizeof(' ') +               // Space
-                        sizeof('h') +               // Revision identifier
-                        sizeof(char) +              // Revision
-                        sizeof('\r')>               // Carriage return
+                      ULF_COM_MAX_DEVICE_NAME_LEN +  // Device name
+                        sizeof(' ') +                // Space
+                        sizeof('v') +                // Version identifier
+                        ULF_COM_MAX_VERSION_LEN +    // Version
+                        sizeof(' ') +                // Space
+                        sizeof('h') +                // Revision identifier
+                        sizeof(char) +               // Revision
+                        sizeof('\r')>                // Carriage return
     retval{};
   auto const first{cbegin(retval)};
   auto last{
     std::copy_n(device_name,
-                std::min(strlen(device_name), ULFCOM_MAX_DEVICE_NAME_LEN),
+                std::min(strlen(device_name), ULF_COM_MAX_DEVICE_NAME_LEN),
                 begin(retval))};
   *last++ = ' ';
   *last++ = 'v';
   last = std::copy_n(
-    version, std::min(strlen(version), ULFCOM_MAX_VERSION_LEN), last);
+    version, std::min(strlen(version), ULF_COM_MAX_VERSION_LEN), last);
   *last++ = '\r';
   retval.resize(static_cast<decltype(retval)::size_type>(last - first));
   return retval;
@@ -70,4 +70,4 @@ ping(char const* device_name, char const* version, char revision) {
   return retval;
 }
 
-}  // namespace ulfcom
+}  // namespace ulf::com

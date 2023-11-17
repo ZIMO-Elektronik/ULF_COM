@@ -75,8 +75,8 @@ cmake --build build --target ULF_COMExamples
 To check whether a string contains an MX1 binary protocol frame or a command, the two functions `str2mx1bin` or `str2cmd` can be used. Both functions expect that the searched schema is at the beginning of the string. In order to be able to distinguish between an error case and the case where the data is still incomplete, the return value of both functions is `std::expected<std::optional<std::string_view>, std::errc>`. If the pattern is not recognized at all, i.e. in the event of an error, then a `std::errc` is returned. If something is found but the data is not yet complete, a `std::nullopt` is returned. Otherwise the found data is returned as `std::string_view`. The following snippet shows how `str2mx1bin` can be used.
 ```cpp
 // Check if character stream contains valid MX1 binary
-auto maybe_mx1bin{ulfcom::str2mx1bin("\x01\x01"
-                                      "data\x17")};
+auto maybe_mx1bin{ulf::com::str2mx1bin("\x01\x01"
+                                        "data\x17")};
 
 // Could be MX1 binary
 if (maybe_mx1bin) {
@@ -97,6 +97,6 @@ Alternatively, the monadic extensions of `std::expected` and `std::optional` can
 Also part of this library is the `ping` function, which can be used to generate a response to the `"PING\r"` command. There are two overloads available, one that only takes the device name and a version, and one that also allows specifying a hardware revision.
 ```cpp
 // Replies to "PING\r"
-auto ping{ulfcom::ping("MyDevice", "1.2.3")};
-auto ping_with_rev{ulfcom::ping("MyDevice", "1.2.3", 'B')};
+auto ping{ulf::com::ping("MyDevice", "1.2.3")};
+auto ping_with_rev{ulf::com::ping("MyDevice", "1.2.3", 'B')};
 ```

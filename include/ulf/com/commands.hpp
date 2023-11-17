@@ -4,16 +4,16 @@
 
 /// Commands
 ///
-/// \file   ulfcom/commands.hpp
+/// \file   ulf/com/commands.hpp
 /// \author Vincent Hamp
-/// \date   15/11/2023
+/// \date   17/11/2023
 
 #pragma once
 
 #include <array>
 #include <string_view>
 
-namespace ulfcom {
+namespace ulf::com {
 
 using namespace std::literals;
 
@@ -29,4 +29,4 @@ inline constexpr std::array commands{
   "SUSIV2\r"sv,
 };
 
-}  // namespace ulfcom
+}  // namespace ulf::com

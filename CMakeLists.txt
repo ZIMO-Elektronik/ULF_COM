@@ -14,10 +14,10 @@ project(
   VERSION ${VERSION_FROM_GIT}
   LANGUAGES CXX)
 
-set(ULFCOM_MAX_DEVICE_NAME_LEN
+set(ULF_COM_MAX_DEVICE_NAME_LEN
     32uz
     CACHE STRING "Maximum length of device name string")
-set(ULFCOM_MAX_VERSION_LEN
+set(ULF_COM_MAX_VERSION_LEN
     32uz
     CACHE STRING "Maximum length of version string")
 
@@ -27,8 +27,8 @@ add_library(ULF::COM ALIAS ULF_COM)
 target_compile_features(ULF_COM INTERFACE cxx_std_23)
 
 target_compile_definitions(
-  ULF_COM INTERFACE ULFCOM_MAX_DEVICE_NAME_LEN=${ULFCOM_MAX_DEVICE_NAME_LEN}
-                    ULFCOM_MAX_VERSION_LEN=${ULFCOM_MAX_VERSION_LEN})
+  ULF_COM INTERFACE ULF_COM_MAX_DEVICE_NAME_LEN=${ULF_COM_MAX_DEVICE_NAME_LEN}
+                    ULF_COM_MAX_VERSION_LEN=${ULF_COM_MAX_VERSION_LEN})
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   target_include_directories(ULF_COM INTERFACE include)

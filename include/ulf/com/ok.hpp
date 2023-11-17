@@ -4,17 +4,17 @@
 
 /// "OK\r" constant
 ///
-/// \file   ulfcom/tx/ok.hpp
+/// \file   ulf/com/ok.hpp
 /// \author Vincent Hamp
-/// \date   15/11/2023
+/// \date   17/11/2023
 
 #pragma once
 
 #include <string_view>
 
-namespace ulfcom {
+namespace ulf::com {
 
 /// Reply to received commands on success
 inline constexpr std::string_view ok{"OK\r"};
 
-}  // namespace ulfcom
+}  // namespace ulf::com

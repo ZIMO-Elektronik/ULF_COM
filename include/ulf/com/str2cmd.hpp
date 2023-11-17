@@ -4,9 +4,9 @@
 
 /// Convert string to command
 ///
-/// \file   ulfcom/rx/str2cmd.hpp
+/// \file   ulf/com/str2cmd.hpp
 /// \author Vincent Hamp
-/// \date   15/11/2023
+/// \date   17/11/2023
 
 #pragma once
 
@@ -16,7 +16,7 @@
 #include <system_error>
 #include "commands.hpp"
 
-namespace ulfcom {
+namespace ulf::com {
 
 /// Convert string to command
 ///
@@ -39,4 +39,4 @@ str2cmd(std::string_view str) {
   return std::nullopt;
 }
 
-}  // namespace ulfcom
+}  // namespace ulf::com

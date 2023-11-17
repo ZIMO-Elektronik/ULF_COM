@@ -4,9 +4,9 @@
 
 /// Convert string to MX1 binary
 ///
-/// \file   ulfcom/rx/str2mx1bin.hpp
+/// \file   ulf/com/str2mx1bin.hpp
 /// \author Vincent Hamp
-/// \date   15/11/2023
+/// \date   17/11/2023
 
 #pragma once
 
@@ -15,7 +15,7 @@
 #include <string_view>
 #include <system_error>
 
-namespace ulfcom {
+namespace ulf::com {
 
 /// Convert string to MX1 binary
 ///
@@ -43,4 +43,4 @@ str2mx1bin(std::string_view str) {
   return std::nullopt;
 }
 
-}  // namespace ulfcom
+}  // namespace ulf::com
