@@ -22,10 +22,10 @@ namespace ulf::com {
 /// String should have the pattern "\x01\x01.+?(?<!\x10)\x17". If the
 /// string contains multiple MX1 binary frames only the first one is returned.
 ///
-/// \param  str                     String
-/// \return std::string_view        View of the received MX1 binary
-/// \return std::nullopt            Not enough characters
-/// \return std::errc::bad_message  Invalid MX1 binary
+/// \param  str                         String
+/// \return std::string_view            View of the received MX1 binary
+/// \return std::nullopt                Not enough characters
+/// \return std::errc::invalid_argument Invalid MX1 binary
 constexpr std::expected<std::optional<std::string_view>, std::errc>
 str2mx1bin(std::string_view str) {
   auto const count{size(str)};
@@ -34,7 +34,7 @@ str2mx1bin(std::string_view str) {
   // Not start of heading (SOH)
   else if ((count >= 1uz && str[0uz] != '\x01') ||
            (count >= 2uz && str[1uz] != '\x01'))
-    return std::unexpected(std::errc::bad_message);
+    return std::unexpected(std::errc::invalid_argument);
   // Look for end of transmission block (ETB)
   for (auto i{2uz}; i < count; ++i)
     if (str[i - 1uz] != '\x10' && str[i] == '\x17')

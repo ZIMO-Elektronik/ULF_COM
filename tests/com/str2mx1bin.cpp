@@ -1,15 +1,15 @@
 #include <gtest/gtest.h>
 #include <ulf/com.hpp>
 
-TEST(str2mx1bin, empty_string) { EXPECT_TRUE(ulf::com::str2mx1bin("")); }
+TEST(str2mx1bin, string_empty) { EXPECT_TRUE(ulf::com::str2mx1bin("")); }
 
-TEST(str2mx1bin, wrong_string) {
+TEST(str2mx1bin, string_invalid) {
   auto b{ulf::com::str2mx1bin("123")};
   EXPECT_FALSE(b);
-  EXPECT_EQ(b, std::unexpected(std::errc::bad_message));
+  EXPECT_EQ(b, std::unexpected(std::errc::invalid_argument));
 }
 
-TEST(str2mx1bin, not_enough_characters) {
+TEST(str2mx1bin, string_too_short) {
   // Missing second SOH and ETB
   {
     auto b{ulf::com::str2mx1bin("\x01")};
@@ -32,7 +32,7 @@ TEST(str2mx1bin, not_enough_characters) {
   }
 }
 
-TEST(str2mx1bin, complete_string) {
+TEST(str2mx1bin, string_valid) {
   // SOH SOH data ETB
   {
     auto b{ulf::com::str2mx1bin("\x01\x01"
@@ -53,7 +53,7 @@ TEST(str2mx1bin, complete_string) {
   }
 }
 
-TEST(str2mx1bin, complete_string_with_escaped_characters) {
+TEST(str2mx1bin, string_valid_with_escaped_characters) {
   // SOH SOH escaped ETB data ETB
   {
     auto b{ulf::com::str2mx1bin("\x01\x01"

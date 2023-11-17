@@ -1,15 +1,15 @@
 #include <gtest/gtest.h>
 #include <ulf/com.hpp>
 
-TEST(str2cmd, empty_string) { EXPECT_TRUE(ulf::com::str2cmd("")); }
+TEST(str2cmd, string_empty) { EXPECT_TRUE(ulf::com::str2cmd("")); }
 
-TEST(str2cmd, wrong_string) {
+TEST(str2cmd, string_invalid) {
   auto b{ulf::com::str2cmd("123")};
   EXPECT_FALSE(b);
-  EXPECT_EQ(b, std::unexpected(std::errc::bad_message));
+  EXPECT_EQ(b, std::unexpected(std::errc::invalid_argument));
 }
 
-TEST(str2cmd, not_enough_characters) {
+TEST(str2cmd, string_too_short) {
   // Missing "ING\r"
   {
     auto b{ulf::com::str2cmd("P")};
@@ -32,7 +32,7 @@ TEST(str2cmd, not_enough_characters) {
   }
 }
 
-TEST(str2cmd, complete_string) {
+TEST(str2cmd, string_valid) {
   // Complete "PING\r"
   {
     auto b{ulf::com::str2cmd("PING\r")};

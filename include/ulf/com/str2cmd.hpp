@@ -22,17 +22,17 @@ namespace ulf::com {
 ///
 /// String must be any of the ones in the commands array.
 ///
-/// \param  str                     String
-/// \return std::string_view        View of the received command
-/// \return std::nullopt            Not enough characters
-/// \return std::errc::bad_message  Invalid command
+/// \param  str                         String
+/// \return std::string_view            View of the received command
+/// \return std::nullopt                Not enough characters
+/// \return std::errc::invalid_argument Invalid command
 constexpr std::expected<std::optional<std::string_view>, std::errc>
 str2cmd(std::string_view str) {
   auto const it{std::ranges::find_if(commands, [&str](std::string_view cmd) {
     return size(cmd) >= size(str) ? cmd.starts_with(str) : str.starts_with(cmd);
   })};
   // Command not found
-  if (it == cend(commands)) return std::unexpected(std::errc::bad_message);
+  if (it == cend(commands)) return std::unexpected(std::errc::invalid_argument);
   // Command found (and complete)
   else if (size(str) >= size(*it)) return *it;
   // Not enough characters
