@@ -24,8 +24,8 @@ namespace ulf::com {
 ///
 /// \param  str                         String
 /// \return std::string_view            View of the received MX1 binary
-/// \return std::nullopt                Not enough characters
-/// \return std::errc::invalid_argument Invalid MX1 binary
+/// \retval std::nullopt                Not enough characters
+/// \retval std::errc::invalid_argument Invalid MX1 binary
 constexpr std::expected<std::optional<std::string_view>, std::errc>
 str2mx1bin(std::string_view str) {
   auto const count{size(str)};

@@ -24,8 +24,8 @@ namespace ulf::com {
 ///
 /// \param  str                         String
 /// \return std::string_view            View of the received command
-/// \return std::nullopt                Not enough characters
-/// \return std::errc::invalid_argument Invalid command
+/// \retval std::nullopt                Not enough characters
+/// \retval std::errc::invalid_argument Invalid string
 constexpr std::expected<std::optional<std::string_view>, std::errc>
 str2cmd(std::string_view str) {
   auto const it{std::ranges::find_if(commands, [&str](std::string_view cmd) {
