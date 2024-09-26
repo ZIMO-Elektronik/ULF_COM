@@ -14,10 +14,10 @@ Most ZIMO devices, especially the [MXULF](http://www.zimo.at/web2010/products/In
 | [ULF_SUSIV2](https://github.com/ZIMO-Elektronik/ULF_SUSIV2)       | [ZPP](https://github.com/ZIMO-Elektronik/ZPP) updates via SUSI                                                          | [MXULF](http://www.zimo.at/web2010/products/InfMXULF_EN.htm), [ZSP](http://www.zimo.at/web2010/products/zsp_zimo-sound-programmer.htm)                                                                                                                                                                         |
 
 <details>
-  <summary>Table of contents</summary>
+  <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#operating-modes">Operating modes</a></li>
-    <li><a href="#getting-started">Getting started</a></li>
+    <li><a href="#operating-modes">Operating Modes</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
@@ -27,7 +27,7 @@ Most ZIMO devices, especially the [MXULF](http://www.zimo.at/web2010/products/In
   </ol>
 </details>
 
-## Operating modes
+## Operating Modes
 The support of many different protocols unfortunately makes the exact process of when and how to switch between them a bit confusing. The default mode that is active after the reset was always the MX1 binary protocol. Special commands that do not correspond to the binary protocol scheme were added later to switch to other modes or to perform other tasks (e.g. status queries).
 
 | Mode                                                              | Enter                                                    | Leave       |
@@ -43,7 +43,7 @@ The following flowchart shows how to switch between the protocols. Receipt of an
 
 The ULF_COM library contains various helper functions that can help with recognizing the mode from a string. Please refer to [Usage](#usage) chapter for further details.
 
-## Getting started
+## Getting Started
 ### Prerequisites
 - C++23 compatible compiler
 - [CMake](https://cmake.org/) ( >= 3.25 )
