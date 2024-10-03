@@ -39,7 +39,7 @@ The support of many different protocols unfortunately makes the exact process of
 | [ULF_SUSIV2](https://github.com/ZIMO-Elektronik/ULF_SUSIV2)       | `"SUSIV2\r"`                                             | `"RESET\r"` |
 
 The following flowchart shows how to switch between the protocols. Receipt of any binary protocol command results in a switch to binary protocol. In order to switch to one of the other operating modes, the name of the protocol including carriage return character must be received. All modes can be exited by receiving a `"RESET\r"` command. This will restore the initial state.
-![alt_text](data/images/ulfcom.png)
+![alt_text](data/images/operating_modes.png)
 
 The ULF_COM library contains various helper functions that can help with recognizing the mode from a string. Please refer to [Usage](#usage) chapter for further details.
 
