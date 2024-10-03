@@ -1,0 +1,54 @@
+@startuml
+
+!pragma useVerticalIf on
+
+start
+
+while (Read character\nfrom serial/CDC)
+  if (Binary) then (true)
+    :Change to mode
+     (can be left with "RESET\r");
+  elseif (Command) then (true)
+    if ("PING\\r") then (true)
+      :Reply "DEVICE vVersion [hREV]\\r";
+    elseif ("DCC_EIN\\r") then (true)
+      if (Mode supported) then (true)
+        :Reply "OK\\r";
+        :Change to mode
+         (can be left with "RESET\r");
+      else (false)
+        :Reply "NOT OK\\r";
+      endif
+    elseif ("DECUP_EIN\\r") then (true)
+      if (Mode supported) then (true)
+        :Reply "OK\\r";
+        :Change to mode
+         (can be left with "RESET\r");
+      else (false)
+        :Reply "NOT OK\\r";
+      endif
+    elseif ("MDU_EIN\\r") then (true)
+      if (Mode supported) then (true)
+        :Reply "OK\\r";
+        :Change to mode
+         (can be left with "RESET\r");
+      else (false)
+        :Reply "NOT OK\\r";
+      endif
+    elseif ("SUSIV2\\r") then (true)
+      if (Mode supported) then (true)
+        :Reply "OK\\r";
+        :Change to mode
+         (can be left with "RESET\r");
+      else (false)
+        :Reply "NOT OK\\r";
+      endif
+    endif
+  else
+  endif
+endwhile
+
+-[hidden]->
+detach
+
+@enduml

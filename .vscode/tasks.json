@@ -26,10 +26,10 @@
       "command": "./build/tests/ULF_COMTests"
     },
     {
-      "label": "Run dot",
+      "label": "Run PlantUML",
       "type": "shell",
       "isBackground": true,
-      "command": "dot -Tpng ./data/ulfcom.dot > ./data/images/ulfcom.png"
+      "command": "plantuml -o ./images ./data/operating_modes.pu"
     }
   ]
 }
