@@ -21,7 +21,7 @@ set(ULF_COM_MAX_VERSION_LEN
     32uz
     CACHE STRING "Maximum length of version string")
 
-add_library(ULF_COM INTERFACE ${SRC})
+add_library(ULF_COM INTERFACE)
 add_library(ULF::COM ALIAS ULF_COM)
 
 target_compile_features(ULF_COM INTERFACE cxx_std_23)

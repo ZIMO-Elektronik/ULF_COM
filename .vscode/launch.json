@@ -5,7 +5,7 @@
       "name": "Debug ULF_COMExamples",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/examples/ULF_COMExamples",
+      "program": "${workspaceFolder}/build/examples/basics/ULF_COMExamples",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

@@ -4,9 +4,17 @@
 TEST(str2cmd, string_empty) { EXPECT_TRUE(ulf::com::str2cmd("")); }
 
 TEST(str2cmd, string_invalid) {
-  auto b{ulf::com::str2cmd("123")};
-  EXPECT_FALSE(b);
-  EXPECT_EQ(b, std::unexpected(std::errc::invalid_argument));
+  {
+    auto b{ulf::com::str2cmd("123")};
+    EXPECT_FALSE(b);
+    EXPECT_EQ(b, std::unexpected(std::errc::invalid_argument));
+  }
+
+  {
+    auto b{ulf::com::str2cmd("\rDCC_")};
+    EXPECT_FALSE(b);
+    EXPECT_EQ(b, std::unexpected(std::errc::invalid_argument));
+  }
 }
 
 TEST(str2cmd, string_too_short) {

@@ -2,34 +2,28 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "CMake ULF_COMTests Clang",
-      "type": "shell",
-      "isBackground": true,
-      "command": "cmake -Bbuild -GNinja -DCMAKE_TOOLCHAIN_FILE=CMakeModules/src/toolchains/clang.cmake -DCMAKE_BUILD_TYPE=Debug"
-    },
-    {
-      "label": "CMake ULF_COMTests",
-      "type": "shell",
-      "isBackground": true,
-      "command": "cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug"
-    },
-    {
-      "label": "Ninja ULF_COMTests",
+      "label": "Build ULF_COMTests",
       "type": "shell",
       "isBackground": true,
       "command": "ninja -C build ULF_COMTests"
     },
     {
-      "label": "Run ULF_COMTests",
+      "label": "Config ULF_COMTests",
       "type": "shell",
       "isBackground": true,
-      "command": "./build/tests/ULF_COMTests"
+      "command": "cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug"
     },
     {
       "label": "Run PlantUML",
       "type": "shell",
       "isBackground": true,
       "command": "plantuml -o ./images ./data/operating_modes.pu"
+    },
+    {
+      "label": "Run ULF_COMTests",
+      "type": "shell",
+      "isBackground": true,
+      "command": "./build/tests/ULF_COMTests"
     }
   ]
 }
