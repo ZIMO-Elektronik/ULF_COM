@@ -1,0 +1,2 @@
+- The command to leave a certain mode isn't always "RESET\r". It depends on what the device responds on a "PING\r" query. Older devices used "DCC_AUS\r" and "DECUP_AUS\r" commands to leave the corresponding modes.
+- Some protocols seem to use the RTS line to enable/disable track voltage?
