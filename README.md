@@ -72,7 +72,30 @@ cmake --build build --target ULF_COMExamples
 ```
 
 ## Usage
-To check whether a string contains an MX1 binary protocol frame or a command, the two functions `str2mx1bin` or `str2cmd` can be used. Both functions expect that the searched schema is at the beginning of the string. In order to be able to distinguish between an error case and the case where the data is still incomplete, the return value of both functions is `std::expected<std::optional<std::string_view>, std::errc>`. If the pattern is not recognized at all, i.e. in the event of an error, then a `std::errc` is returned. If something is found but the data is not yet complete, a `std::nullopt` is returned. Otherwise the found data is returned as `std::string_view`. The following snippet shows how `str2mx1bin` can be used.
+To check whether a string contains an MX1 binary protocol frame or a command, the two functions `str2mx1bin` or `str2cmd` can be used. Both functions expect that the searched schema is at the beginning of the string. In order to be able to distinguish between an error case and the case where the data is still incomplete, the return value of both functions is `std::expected<std::optional<std::string_view>, std::errc>`. If the pattern is not recognized at all, i.e. in the event of an error, then a `std::errc` is returned. If something is found but the data is not yet complete, a `std::nullopt` is returned. Otherwise the found data is returned as `std::string_view`. The following snippet shows how `str2cmd` can be used.
+```cpp
+// Check if character stream contains valid command
+auto maybe_cmd{ulf::com::str2cmd("DCC_EIN\r and then some")};
+
+// Could be command
+if (maybe_cmd) {
+  // Already complete?
+  if (*maybe_cmd) {
+    // Complete command
+    auto cmd{**maybe_cmd};
+    std::cout << cmd << "\n";
+  }
+  // No, still missing characters
+  else {}
+}
+// Error, not command
+else {}
+
+// Or, more concise
+if (maybe_cmd == "DCC_EIN\r"sv) std::cout << "Command found\n";
+```
+
+And the same pattern can also be applied to `str2mx1bin`.
 ```cpp
 // Check if character stream contains valid MX1 binary
 auto maybe_mx1bin{ulf::com::str2mx1bin("\x01\x01"
@@ -84,6 +107,7 @@ if (maybe_mx1bin) {
   if (*maybe_mx1bin) {
     // Complete MX1 binary
     auto mx1bin{**maybe_mx1bin};
+    std::cout << mx1bin << "\n";
   }
   // No, still missing characters
   else {}
