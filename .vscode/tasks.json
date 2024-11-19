@@ -2,18 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build ULF_COMTests",
-      "type": "shell",
-      "isBackground": true,
-      "command": "ninja -C build ULF_COMTests"
-    },
-    {
-      "label": "Config ULF_COMTests",
-      "type": "shell",
-      "isBackground": true,
-      "command": "cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug"
-    },
-    {
       "label": "Run PlantUML",
       "type": "shell",
       "isBackground": true,
