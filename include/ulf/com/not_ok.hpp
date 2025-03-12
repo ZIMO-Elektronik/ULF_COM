@@ -17,4 +17,4 @@ namespace ulf::com {
 /// Reply to received commands on failure
 inline constexpr std::string_view not_ok{"NOT OK\r"};
 
-}  // namespace ulf::com
+} // namespace ulf::com

@@ -28,14 +28,14 @@ namespace ulf::com {
 constexpr auto ping(char const* device_name, char const* version) {
   assert(device_name && version);
   ztl::inplace_vector<char,
-                      ULF_COM_MAX_DEVICE_NAME_LEN +  // Device name
-                        sizeof(' ') +                // Space
-                        sizeof('v') +                // Version identifier
-                        ULF_COM_MAX_VERSION_LEN +    // Version
-                        sizeof(' ') +                // Space
-                        sizeof('h') +                // Revision identifier
-                        sizeof(char) +               // Revision
-                        sizeof('\r')>                // Carriage return
+                      ULF_COM_MAX_DEVICE_NAME_LEN + // Device name
+                        sizeof(' ') +               // Space
+                        sizeof('v') +               // Version identifier
+                        ULF_COM_MAX_VERSION_LEN +   // Version
+                        sizeof(' ') +               // Space
+                        sizeof('h') +               // Revision identifier
+                        sizeof(char) +              // Revision
+                        sizeof('\r')>               // Carriage return
     retval{};
   auto const first{cbegin(retval)};
   auto last{
@@ -70,4 +70,4 @@ ping(char const* device_name, char const* version, char revision) {
   return retval;
 }
 
-}  // namespace ulf::com
+} // namespace ulf::com

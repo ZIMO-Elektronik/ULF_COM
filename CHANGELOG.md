@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1
+- Add `"RESET\r"` command
+
 ## 0.1.0
 - Bugfix CMake always includes tests
 
