@@ -39,7 +39,7 @@ endif()
 target_common_warnings(ULF_COM INTERFACE)
 
 if(NOT TARGET ZTL::ZTL)
-  cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.19.0")
+  cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.20.0")
 endif()
 
 target_link_libraries(ULF_COM INTERFACE ZTL::ZTL)

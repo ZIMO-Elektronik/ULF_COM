@@ -49,6 +49,14 @@ TEST(str2cmd, string_valid) {
     EXPECT_EQ(b->value(), "PING\r");
   }
 
+  // Complete "RESET\r"
+  {
+    auto b{ulf::com::str2cmd("RESET\r")};
+    EXPECT_TRUE(b);
+    EXPECT_TRUE(*b);
+    EXPECT_EQ(b->value(), "RESET\r");
+  }
+
   // Complete "MDU_EIN\r"
   {
     auto b{ulf::com::str2cmd("MDU_EIN\r")};

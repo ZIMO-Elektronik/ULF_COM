@@ -17,4 +17,4 @@ namespace ulf::com {
 /// Reply to received commands on success
 inline constexpr std::string_view ok{"OK\r"};
 
-}  // namespace ulf::com
+} // namespace ulf::com

@@ -21,6 +21,7 @@ using namespace std::literals;
 inline constexpr std::array commands{
   // General
   "PING\r"sv,
+  "RESET\r"sv,
 
   // Protocols (mode changes)
   "DCC_EIN\r"sv,
@@ -29,4 +30,4 @@ inline constexpr std::array commands{
   "SUSIV2\r"sv,
 };
 
-}  // namespace ulf::com
+} // namespace ulf::com

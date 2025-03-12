@@ -16,6 +16,7 @@ while (Read character\nfrom serial/CDC)
         :Reply "OK\\r";
         :Change to mode
          (can be left with "RESET\r");
+        detach
       else (false)
         :Reply "NOT OK\\r";
       endif
@@ -24,6 +25,7 @@ while (Read character\nfrom serial/CDC)
         :Reply "OK\\r";
         :Change to mode
          (can be left with "RESET\r");
+        detach
       else (false)
         :Reply "NOT OK\\r";
       endif
@@ -32,6 +34,7 @@ while (Read character\nfrom serial/CDC)
         :Reply "OK\\r";
         :Change to mode
          (can be left with "RESET\r");
+        detach
       else (false)
         :Reply "NOT OK\\r";
       endif
@@ -40,6 +43,7 @@ while (Read character\nfrom serial/CDC)
         :Reply "OK\\r";
         :Change to mode
          (can be left with "RESET\r");
+        detach
       else (false)
         :Reply "NOT OK\\r";
       endif

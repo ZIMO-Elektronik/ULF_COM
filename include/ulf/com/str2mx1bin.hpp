@@ -43,4 +43,4 @@ str2mx1bin(std::string_view str) {
   return std::nullopt;
 }
 
-}  // namespace ulf::com
+} // namespace ulf::com
