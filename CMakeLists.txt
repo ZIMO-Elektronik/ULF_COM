@@ -4,7 +4,7 @@ include(FetchContent)
 FetchContent_Declare(
   CMakeModules
   GIT_REPOSITORY "https://github.com/ZIMO-Elektronik/CMakeModules"
-  GIT_TAG v0.9.5
+  GIT_TAG v0.10.0
   SOURCE_DIR ${CMAKE_BINARY_DIR}/CMakeModules)
 FetchContent_MakeAvailable(CMakeModules)
 
@@ -30,16 +30,17 @@ target_compile_definitions(
   ULF_COM INTERFACE ULF_COM_MAX_DEVICE_NAME_LEN=${ULF_COM_MAX_DEVICE_NAME_LEN}
                     ULF_COM_MAX_VERSION_LEN=${ULF_COM_MAX_VERSION_LEN})
 
-if(PROJECT_IS_TOP_LEVEL)
+# https://github.com/espressif/esp-idf/issues/17773
+if(PROJECT_IS_TOP_LEVEL AND NOT ESP_PLATFORM)
   target_include_directories(ULF_COM INTERFACE include)
+  target_common_warnings(ULF_COM INTERFACE)
+  target_common_errors(ULF_COM INTERFACE)
 else()
   target_include_directories(ULF_COM SYSTEM INTERFACE include)
 endif()
 
-target_common_warnings(ULF_COM INTERFACE)
-
 if(NOT TARGET ZTL::ZTL)
-  cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.20.0")
+  cpmaddpackage("gh:ZIMO-Elektronik/ZTL@0.23.1")
 endif()
 
 target_link_libraries(ULF_COM INTERFACE ZTL::ZTL)

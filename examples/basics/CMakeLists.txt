@@ -4,5 +4,6 @@ add_executable(ULF_COMExamples ${SRC})
 sanitize(address,undefined)
 
 target_common_warnings(ULF_COMExamples PRIVATE)
+target_common_errors(ULF_COMExamples PRIVATE)
 
 target_link_libraries(ULF_COMExamples PRIVATE ULF::COM)
