@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.2
+- Add workaround for Espressif's misuse of CMake
+
 ## 0.1.1
 - Add `"RESET\r"` command
 
